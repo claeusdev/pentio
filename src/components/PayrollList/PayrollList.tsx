@@ -1,14 +1,14 @@
-import { Payroll } from 'src/App'
-import Table from '../Table'
+import { Payroll } from "src/App";
+import Table from "src/components/Table";
 
 interface PayrollListProps {
-    state: Payroll[]
+  state: Payroll[];
 }
 
-export default function PayrollList({ state}: PayrollListProps) {
-    return (
-        <div>
-            <Table data={state} />
-        </div>
-    )
+export default function PayrollList({ state }: PayrollListProps) {
+  return (
+    <div>
+      <Table data={state} />
+    </div>
+  );
 }

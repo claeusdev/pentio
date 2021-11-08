@@ -1,7 +1,8 @@
-import { Container, Spinner, Text, Box } from "@chakra-ui/react";
+import { Container, Spinner, Text, Box, Stat } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Api from "src/api";
-import PayrollList from "./components/PayrollList";
+import PayrollList from "src/components/PayrollList";
+import StatsSection from "src/components/Stat";
 
 export interface Payroll {
   ["Payroll Period"]: string;
@@ -35,7 +36,7 @@ function App() {
     <Box my={4}>
       <Container maxW="container.lg">
         <Text>Welcome, Acme Corp.</Text>
-
+        <StatsSection />
         {isLoading ? (
           <Spinner
             thickness="4px"

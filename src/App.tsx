@@ -1,4 +1,4 @@
-import { Container, Spinner, Text, Box, Stat } from "@chakra-ui/react";
+import { Container, Spinner, Text, Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Api from "src/api";
 import PayrollList from "src/components/PayrollList";

@@ -39,7 +39,7 @@ const StatCard = ({ data, icon, accentColor }: StatProps) => {
         </Heading>
       </HStack>
       <HStack>
-        <Text>Past 7 days</Text>
+        <Text>Past Month</Text>
         <Badge
           fontSize="sm"
           px="2"

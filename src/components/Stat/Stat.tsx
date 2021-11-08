@@ -4,7 +4,7 @@ import {
   StackDivider,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import { HiCheckCircle, HiClock, HiExclamationCircle } from "react-icons/hi";
+import { HiCheckCircle, HiOutlineCash, HiUserGroup } from "react-icons/hi";
 import StatCard from "src/components/StatCard";
 
 const StatsSection = () => {
@@ -23,27 +23,28 @@ const StatsSection = () => {
             divider={<StackDivider />}
           >
             <StatCard
-              accentColor="green.500"
-              icon={<HiClock />}
-              data={{
-                label: "Total time today",
-                value: "5h 40m",
-                change: -2.1,
-              }}
-            />
-            <StatCard
               accentColor="red.500"
-              icon={<HiExclamationCircle />}
+              icon={<HiOutlineCash />}
               data={{
-                label: "Unproductive time",
-                value: "1h 10m",
+                label: "Total Earnings",
+                value: "24000",
                 change: 4.31,
               }}
             />
             <StatCard
               accentColor="cyan.500"
               icon={<HiCheckCircle />}
-              data={{ label: "Tasks completed", value: "40", change: -4.5 }}
+              data={{ label: "Total Pensions", value: "40", change: -4.5 }}
+            />
+            <StatCard
+              accentColor="cyan.500"
+              icon={<HiCheckCircle />}
+              data={{ label: "Total Bonuses", value: "40", change: -4.5 }}
+            />
+            <StatCard
+              accentColor="cyan.500"
+              icon={<HiCheckCircle />}
+              data={{ label: "Total Payroll", value: "40", change: -4.5 }}
             />
           </Stack>
         </Box>

@@ -1,7 +1,7 @@
-import { Spinner } from "@chakra-ui/react";
+import { Container, Spinner, Text, Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Api from "src/api";
-import Application from "src/components/App";
+import PayrollList from "./components/PayrollList";
 
 export interface Payroll {
   ["Payroll Period"]: string;
@@ -16,7 +16,6 @@ export interface Payroll {
   ["Student Loan Repayment"]: number;
   ["Income Tax"]: number;
   ["Employee Pension"]: number;
-  ["Employer Pension"]: number;
   ["Net Pay"]: number;
 }
 
@@ -33,24 +32,25 @@ function App() {
     getProduct();
   }, []);
   return (
-    <div className="App">
-      {isLoading ? (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-      ) : (
-        <>
-          {state.map((payroll) => (
-            <p>{payroll["Employee Name"]}</p>
-          ))}
-        </>
-      )}
-      <Application />
-    </div>
+    <Box my={4}>
+      <Container maxW="container.lg">
+        <Text>Welcome, Acme Corp.</Text>
+
+        {isLoading ? (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        ) : (
+          <>
+            <PayrollList state={state} />
+          </>
+        )}
+      </Container>
+    </Box>
   );
 }
 

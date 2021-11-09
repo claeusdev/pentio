@@ -1,9 +1,14 @@
-import React from 'react'
+import { Payroll } from "src/utils/types";
+import Table from "src/components/Table";
 
-export default function PayrollList() {
-    return (
-        <div>
-            Payroll List
-        </div>
-    )
+interface PayrollListProps {
+  state: Payroll[];
+}
+
+export default function PayrollList({ state }: PayrollListProps) {
+  return (
+    <div>
+      <Table data={state} />
+    </div>
+  );
 }

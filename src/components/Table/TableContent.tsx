@@ -8,7 +8,7 @@ import {
   Tr,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
-import { Payroll } from 'src/App';
+import { Payroll } from 'src/utils/types';
 import { badgeEnum } from 'src/utils';
 import User from '../User/User';
 

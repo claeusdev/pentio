@@ -13,8 +13,6 @@ interface UserProps {
 }
 
 const User = ({ user }: UserProps) => {
-  console.log("USER", user)
-
   return (
     <Stack direction="row" spacing="4" align="center">
       <Box>

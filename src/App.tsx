@@ -4,21 +4,7 @@ import Api from "src/api";
 import PayrollList from "src/components/PayrollList";
 import StatsSection from "src/components/Stat";
 
-export interface Payroll {
-  ["Payroll Period"]: string;
-  ["Pay Date"]: string;
-  ["Employee ID"]: string;
-  ["Employee Name"]: string;
-  Departments: string[];
-  currency: string;
-  ["Hours Worked"]: number;
-  ["Base Salary"]: number;
-  Bonus: number;
-  ["Student Loan Repayment"]: number;
-  ["Income Tax"]: number;
-  ["Employee Pension"]: number;
-  ["Net Pay"]: number;
-}
+import { Payroll } from "src/utils/types";
 
 function App() {
   const [state, setstate] = useState<Payroll[]>([]);
@@ -36,7 +22,7 @@ function App() {
     <Box my={4}>
       <Container maxW="container.lg">
         <Text>Welcome, Acme Corp.</Text>
-        <StatsSection />
+        <StatsSection payroll={state} />
         {isLoading ? (
           <Spinner
             thickness="4px"

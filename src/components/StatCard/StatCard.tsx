@@ -18,9 +18,10 @@ interface StatProps {
     label: string;
     value: string;
   };
+  currency?: string;
 }
 
-const StatCard = ({ data, icon, accentColor }: StatProps) => {
+const StatCard = ({ data, icon, accentColor, currency = "$"}: StatProps) => {
   const { label, value, change } = data;
 
   const isNegative = change < 0;
@@ -35,7 +36,7 @@ const StatCard = ({ data, icon, accentColor }: StatProps) => {
           {icon}
         </Circle>
         <Heading as="h1" size="xl" fontWeight="bold">
-          {value}
+          {currency}{value}
         </Heading>
       </HStack>
       <HStack>

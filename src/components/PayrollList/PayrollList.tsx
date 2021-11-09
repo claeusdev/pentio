@@ -1,4 +1,4 @@
-import { Payroll } from "src/App";
+import { Payroll } from "src/utils/types";
 import Table from "src/components/Table";
 
 interface PayrollListProps {

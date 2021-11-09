@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import * as React from 'react'
-import { Payroll } from 'src/App'
+import { Payroll } from 'src/utils/types'
 import { TableContent } from './TableContent'
 import { TablePagination } from './TablePagination'
 

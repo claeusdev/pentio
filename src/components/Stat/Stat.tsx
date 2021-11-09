@@ -4,10 +4,16 @@ import {
   StackDivider,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import { HiCheckCircle, HiOutlineCash, HiUserGroup } from "react-icons/hi";
+import { HiCheckCircle, HiOutlineCash } from "react-icons/hi";
 import StatCard from "src/components/StatCard";
+import { convertNumberToString, getPayrollTotals } from "src/utils";
+import { Payroll } from "src/utils/types";
 
-const StatsSection = () => {
+interface StatsSectionProps  {
+  payroll: Payroll[]
+}
+const StatsSection = ({ payroll }: StatsSectionProps) => {
+  const totalSummary = getPayrollTotals(payroll)
   return (
     <Box as="section" bg={mode("gray.50", "gray.800")} p="6">
       <Box
@@ -23,28 +29,19 @@ const StatsSection = () => {
             divider={<StackDivider />}
           >
             <StatCard
+              accentColor="green.500"
+              icon={<HiCheckCircle />}
+              data={{ label: "Total Pensions", value: convertNumberToString(totalSummary.totalPension), change: -4.5 }}
+            />
+            <StatCard
+              accentColor="cyan.500"
+              icon={<HiCheckCircle />}
+              data={{ label: "Total Bonuses", value: convertNumberToString(totalSummary.totalBonuses), change: -4.5 }}
+            />
+            <StatCard
               accentColor="red.500"
               icon={<HiOutlineCash />}
-              data={{
-                label: "Total Earnings",
-                value: "24000",
-                change: 4.31,
-              }}
-            />
-            <StatCard
-              accentColor="cyan.500"
-              icon={<HiCheckCircle />}
-              data={{ label: "Total Pensions", value: "40", change: -4.5 }}
-            />
-            <StatCard
-              accentColor="cyan.500"
-              icon={<HiCheckCircle />}
-              data={{ label: "Total Bonuses", value: "40", change: -4.5 }}
-            />
-            <StatCard
-              accentColor="cyan.500"
-              icon={<HiCheckCircle />}
-              data={{ label: "Total Payroll", value: "40", change: -4.5 }}
+              data={{ label: "Total Payroll", value: convertNumberToString(totalSummary.totalPayroll), change: -4.5 }}
             />
           </Stack>
         </Box>
